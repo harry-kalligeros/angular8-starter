@@ -245,6 +245,26 @@ indent_size = 4
 ```
 
 # 4 Start coding
+
+## 4.1 With npm
+```
+npm start
 ```
 
+## 4.2 With VS-Code-Insiders
+* Go to Debug
+* Add a launch configuration
+* Add the following snippet
 ```
+		{
+			"name": "Launch Angular",
+			"type": "chrome",
+			"request": "launch",
+			"preLaunchTask": "npm: start",
+			"url": "http://localhost:4200/",
+			"webRoot": "${workspaceFolder}"
+		}
+```
+* Run "Lauch Angular"
+
+
