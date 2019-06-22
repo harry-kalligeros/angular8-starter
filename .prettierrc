@@ -1,0 +1,24 @@
+{
+	"singleQuote": true,
+	"useTabs": true,
+	"tabWidth": 4,
+	"printWidth": 120,
+	"semi": true,
+	"bracketSpacing": true,
+	"overrides": [
+		{
+			"files": "*.json",
+			"options": {
+				"useTabs": false,
+				"tabWidth": 2
+			}
+		},
+		{
+			"files": "*.md",
+			"options": {
+				"useTabs": true,
+				"tabWidth": 2
+			}
+		}
+	]
+}

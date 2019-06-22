@@ -6,6 +6,7 @@
     * Plugins:
         * Angular Essentials
         * Angular Snippets (Version 8)
+		* Debugger for Chrome
         * Ngrx Snippets
         * Document This
         * Jest
@@ -93,6 +94,7 @@
 
 * [Git](https://git-scm.com/downloads)
 * [Nvm](https://github.com/nvm-sh/nvm) (Linux/Mac OSX) or [Nvm-windows](https://github.com/coreybutler/nvm-windows/releases/download/1.1.7/nvm-setup.zip) (Windows)
+* Chrome or Chrome Canary
 
 ## 2. Tools setup
 
@@ -124,59 +126,57 @@ cd worldtradingdata-ui
 ```
 ng add @briebug/jest-schematic
 npm install -D jest @types/jest
-npm i -D @angular-builders/jest
-
 ```
 
 #### Files
 
  * jest.config.js
-
-> 1st line:
-
+> Paste the following code:
 ```
-  const { defaults: tsjPreset } = require('ts-jest/presets');
-```
- 
-> Append this to module.exports*
+// https://github.com/thymikee/jest-preset-angular#brief-explanation-of-config
 
-```
-globals: {
-    'ts-jest': {
-      ...tsjPreset,
-      tsConfig: 'tsconfig.spec.json'
-    }
-  }
+module.exports = {
+	preset: 'jest-preset-angular',
+	roots: ['src'],
+	setupFilesAfterEnv: ['<rootDir>/src/setup-jest.ts'],
+	moduleNameMapper: {
+		'@app/(.*)': '<rootDir>/src/app/$1',
+		'@assets/(.*)': '<rootDir>/src/assets/$1',
+		'@core/(.*)': '<rootDir>/src/app/core/$1',
+		'@env': '<rootDir>/src/environments/environment',
+		'@src/(.*)': '<rootDir>/src/src/$1',
+		'@state/(.*)': '<rootDir>/src/app/state/$1'
+	},
+	transformIgnorePatterns: ['node_modules/(?!(jest-test))'],
+	globals: {
+		'ts-jest': {
+			tsConfig: '<rootDir>/tsconfig.spec.json',
+			stringifyContentPathRegex: '\\.html$',
+			astTransformers: ['jest-preset-angular/InlineHtmlStripStylesTransformer.js']
+		}
+	}
+};
+
 ```
 
 * package.json
 ```
     { 
       ...
-      "test": "ng test",
+      "test": "jest",
       ...,
-      "test:watch": "ng test --watch"
+      "test:watch": "jest --watch"
       ...
     }
 ```
 
 * angular.json
-> Modify "test" to this:
-
-```
-      "test": {
-          "builder": "@angular-builders/jest:run",
-          "options": {
-
-          }
-       }
-```
+> Remove section "test" under "projects"/"worldtradingdata-ui"
 
 * tsconfig.json
 > Add this under compilerOptions
 ```
     "types": ["jest"],
-
 ```
 
 * tsconfig.spec.json
@@ -204,5 +204,47 @@ npm run test:watch
 ```
 git add .
 git commit -m 'Adding Jest for Unit Testing'
+
+```
+
+### 3.2.2 Code formatting
+
+#### Modify .editorconfig
+
+```
+indent_style = tab
+indent_size = 4
+```
+
+#### Add .prettierrc
+
+```
+{
+	"singleQuote": true,
+	"useTabs": true,
+	"tabWidth": 4,
+	"printWidth": 120,
+	"semi": true,
+	"bracketSpacing": true,
+	"overrides": [
+		{
+			"files": "*.json",
+			"options": {
+				"useTabs": false,
+				"tabWidth": 2
+			}
+		}
+	]
+}
+```
+
+#### Modify tslint.json
+> Add this, under rules:
+```
+"indent": [true, "tabs", 4],
+```
+
+# 4 Start coding
+```
 
 ```
