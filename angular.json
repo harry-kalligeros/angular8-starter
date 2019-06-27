@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "worldtradingdata-ui": {
+    "market-watcher": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -12,12 +12,12 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "mw",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/worldtradingdata-ui",
+            "outputPath": "dist/market-watcher",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "worldtradingdata-ui:build"
+            "browserTarget": "market-watcher:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "worldtradingdata-ui:build:production"
+              "browserTarget": "market-watcher:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "worldtradingdata-ui:build"
+            "browserTarget": "market-watcher:build"
           }
         },
         "lint": {
@@ -93,15 +93,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "worldtradingdata-ui:serve"
+            "devServerTarget": "market-watcher:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "worldtradingdata-ui:serve:production"
+              "devServerTarget": "market-watcher:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "worldtradingdata-ui"
+  "defaultProject": "market-watcher"
 }

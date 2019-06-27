@@ -1,11 +1,12 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
 
 describe('AppComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			imports: [RouterTestingModule],
+			imports: [SharedModule, RouterTestingModule],
 			declarations: [AppComponent]
 		}).compileComponents();
 	}));
@@ -16,16 +17,10 @@ describe('AppComponent', () => {
 		expect(app).toBeTruthy();
 	});
 
-	it(`should have as title 'worldtradingdata-ui'`, () => {
+	it(`should have as title 'market-watcher'`, () => {
 		const fixture = TestBed.createComponent(AppComponent);
 		const app = fixture.debugElement.componentInstance;
-		expect(app.title).toEqual('worldtradingdata-ui');
+		expect(app.title).toEqual('market-watcher');
 	});
 
-	it('should render title in a h1 tag', () => {
-		const fixture = TestBed.createComponent(AppComponent);
-		fixture.detectChanges();
-		const compiled = fixture.debugElement.nativeElement;
-		expect(compiled.querySelector('h1').textContent).toContain('Welcome to worldtradingdata-ui!');
-	});
 });

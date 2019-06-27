@@ -67,9 +67,7 @@
     "typescriptHero.imports.grouping": [
       "/rxjs/",
       "/@angular/",
-      "/@ngrx/",
-      "/@echacs/",
-      "/@idm/",
+      "/@ngrx/",      
       "Plains",
       "Modules",
       "Workspace"
@@ -114,11 +112,11 @@ npm install -g @angular/cli
 
 ## 3.1 Creating Project
 ```
-ng new worldtradingdata-ui --style=scss --routing=true
-cd worldtradingdata-ui
+ng new market-watcher --style=scss --routing=true --prefix=mw
+cd market-watcher
 ```
 
-## 3.2. Preparing tools in the project
+## 3.2. Tools and 3rd-party libraries
 
 ### 3.2.1 Jest (Unit testing)
 
@@ -171,7 +169,7 @@ module.exports = {
 ```
 
 * angular.json
-> Remove section "test" under "projects"/"worldtradingdata-ui"
+> Remove section "test" under "projects"/"market-watcher"
 
 * tsconfig.json
 > Add this under compilerOptions
@@ -242,6 +240,64 @@ indent_size = 4
 > Add this, under rules:
 ```
 "indent": [true, "tabs", 4],
+```
+
+### 3.2.3 UI Framework
+
+There are several 3rd party frameworks, which help for rapid UI development:
+* ngx-bootstrap
+* prime-ng
+* material-design
+* bulma (only css)
+
+We choose [ngx-bootsrap](https://www.npmjs.com/package/ngx-bootstrap):
+
+```
+npm install bootstrap-scss --save
+npm install ngx-bootstrap --save
+```
+
+Add the following to styles.scss:
+
+```
+@import "~bootstrap-scss/bootstrap";
+```
+
+### 3.2.4 Fonts & Icon Library
+
+* Use the *Roboto* font library
+* Use [font-awesome 5](https://github.com/FortAwesome/angular-fontawesome) for icon library
+
+```
+npm i -S @fortawesome/fontawesome-free-webfonts
+npm i -S roboto-fontface
+```
+* Add this to your styles.scss
+```
+$fa-font-path: "~@fortawesome/fontawesome-free-webfonts/webfonts";
+@import '~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss';
+@import '~@fortawesome/fontawesome-free-webfonts/scss/fa-regular.scss';
+```
+
+* Add this under the styles array, in angular.json, before "src/styles.scss"
+
+```
+"node_modules/roboto-fontface/css/roboto/sass/roboto-fontface.scss"
+```
+
+* Add this to your styles.scss
+
+```
+body {
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+	font-variant-ligatures: none;
+}
+
+html {
+	font-size: 16px;
+}
+
 ```
 
 # 4 Start coding
