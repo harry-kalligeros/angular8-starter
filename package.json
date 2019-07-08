@@ -40,6 +40,8 @@
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "dyson": "^2.0.4",
+    "dyson-generators": "^0.2.0",
+    "faker": "^4.1.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "jest": "^24.8.0",
