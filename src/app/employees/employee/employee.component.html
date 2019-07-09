@@ -1,0 +1,39 @@
+<section *ngIf="employee$ | async as employee">
+	<a routerLink="..">Back</a>
+	<table class="table table-striped">
+		<tbody>
+			<tr>
+				<th>id</th>
+				<td>{{ employee.id }}</td>
+			</tr>
+			<tr>
+				<th>username</th>
+				<td>{{ employee.username }}</td>
+			</tr>
+			<tr>
+				<th>email</th>
+				<td>{{ employee.email }}</td>
+			</tr>
+			<tr>
+				<th>firstName</th>
+				<td>{{ employee.firstName }}</td>
+			</tr>
+			<tr>
+				<th>lastName</th>
+				<td>{{ employee.lastName }}</td>
+			</tr>
+			<tr>
+				<th>jobTitle</th>
+				<td>{{ employee.jobTitle }}</td>
+			</tr>
+			<tr>
+				<th>city</th>
+				<td>{{ employee.city }}</td>
+			</tr>
+			<tr>
+				<th>phone</th>
+				<td>{{ employee.phone }}</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

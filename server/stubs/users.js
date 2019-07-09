@@ -1,34 +1,45 @@
-var g = require('dyson-generators');
-var f = require('faker');
+const g = require('dyson-generators');
+const f = require('faker');
+const apiPath = require('../api');
 
-var user = {
+const user = {
     path: '/user',
-    template: {
-        id: g.id,
-        user: g.name,
-        city: g.address.city
-    }
+    template: userTemplate(g.id)
 };
 
-var users = {
+const users = {
     path: '/users',
     collection: true,
 	template: user.template,
 	size: 10
 };
 
-var userWithParam = {
+const userWithParam = {
 	path: '/user/:userId',
-	template: {
-        id: params => params.userId,
-		username: f.internet.userName(),
-		email: f.internet.email(),
-		firstName: f.name.firstName,
-		lastName: f.name.lastName,
-		jobTitle: f.name.jobTitle,
-        city: f.address.city,
-		phone: f.phone.phoneNumber()
-    }
+	template: userTemplate()
 }
 
-module.exports = [user, users, userWithParam];
+function userTemplate(id) {
+	const fkr = f;
+	const tId = id;
+	return () => {
+		const tmpl = {
+			username: () => fkr.internet.userName(),
+			email: () => fkr.internet.email(),
+			firstName: fkr.name.firstName,
+			lastName: fkr.name.lastName,
+			jobTitle: fkr.name.jobTitle,
+			city: fkr.address.city,
+			phone: fkr.phone.phoneNumber
+		};
+		tmpl.id = tId ? tId : params => params.userId;
+		return tmpl;
+	}
+}
+
+const userEndpoints = [user, users, userWithParam].map(endPoint => {
+	endPoint.path = apiPath + endPoint.path;
+	return endPoint;
+});
+
+module.exports = userEndpoints;

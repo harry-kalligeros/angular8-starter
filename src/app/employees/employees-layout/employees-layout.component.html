@@ -1,0 +1,9 @@
+<section *ngIf="employees$ | async as employees; else loader">
+	<mw-employee-filter (filterEmployee)="onFilterEmployee($event)"></mw-employee-filter>
+	<mw-employee-list [employees]="employees" [employeeFilter]="employeeFilter"></mw-employee-list>
+</section>
+<ng-template #loader>
+	<div class="spinner-border text-primary" role="status">
+		<span class="sr-only">Loading...</span>
+	</div>
+</ng-template>
