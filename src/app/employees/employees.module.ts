@@ -10,7 +10,13 @@ import { EmployeesRoutingModule } from './employees-routing.module';
 import { FilterEmployeePipe } from './filter-employee.pipe';
 
 @NgModule({
-	declarations: [EmployeeListComponent, EmployeeComponent, EmployeeFilterComponent, EmployeesLayoutComponent, FilterEmployeePipe],
+	declarations: [
+		EmployeeListComponent,
+		EmployeeComponent,
+		EmployeeFilterComponent,
+		EmployeesLayoutComponent,
+		FilterEmployeePipe
+	],
 	imports: [CommonModule, EmployeesRoutingModule, FormsModule]
 })
 export class EmployeesModule {}

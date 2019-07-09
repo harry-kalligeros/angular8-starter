@@ -1,8 +1,9 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { EmployeeService } from './employee.service';
 
-describe('EmployeeService', () => {
+import { GraphsService } from './graphs.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+
+describe('GraphsService', () => {
 	beforeEach(() =>
 		TestBed.configureTestingModule({
 			imports: [HttpClientTestingModule]
@@ -10,7 +11,7 @@ describe('EmployeeService', () => {
 	);
 
 	it('should be created', () => {
-		const service: EmployeeService = TestBed.get(EmployeeService);
+		const service: GraphsService = TestBed.get(GraphsService);
 		expect(service).toBeTruthy();
 	});
 });
