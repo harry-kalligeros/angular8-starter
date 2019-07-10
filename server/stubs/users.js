@@ -3,21 +3,27 @@ const f = require('faker');
 const apiPath = require('../api');
 
 const user = {
-    path: '/user',
-    template: userTemplate(g.id)
+	path: '/user',
+	template: userTemplate(g.id)
 };
 
 const users = {
-    path: '/users',
-    collection: true,
+	path: '/users',
+	collection: true,
 	template: user.template,
 	size: 10
 };
 
 const userWithParam = {
 	path: '/user/:userId',
-	template: userTemplate()
-}
+	template: userTemplate(),
+	status: (req, res, next) => {
+		if (req.params.userId === '111') {
+			res.status(404);
+		}
+		next();
+	}
+};
 
 function userTemplate(id) {
 	const fkr = f;
@@ -34,7 +40,7 @@ function userTemplate(id) {
 		};
 		tmpl.id = tId ? tId : params => params.userId;
 		return tmpl;
-	}
+	};
 }
 
 const userEndpoints = [user, users, userWithParam].map(endPoint => {
