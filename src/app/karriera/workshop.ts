@@ -40,14 +40,14 @@ const workshop = new Workshop(new Date(), 'marousi', 'athens');
 
 workshop.watch('Male');
 
-import { Directive } from '@angular/core';
+// import { Directive } from '@angular/core';
 
-@Directive({ selector: '[appHighlight]' })
-export class HighlightDirective {
-	constructor() { }
-	@Input() appHighlight: string;
-	@Input() background: string;
-}
+// @Directive({ selector: '[appHighlight]' })
+// export class HighlightDirective {
+// 	constructor() { }
+// 	@Input() appHighlight: string;
+// 	@Input() background: string;
+// }
 
 // // <p [appHighlight]="'yellow'" [background]="'red'"></p>
 
