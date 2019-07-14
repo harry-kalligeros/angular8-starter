@@ -13,6 +13,8 @@ import { Observable } from 'rxjs';
 	providedIn: 'root'
 })
 export class AuthService {
+	public isLoggedIn = false;
+
 	constructor(private http: HttpClient) {}
 
 	/**

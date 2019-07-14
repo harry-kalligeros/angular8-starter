@@ -3,10 +3,11 @@ import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest, HttpErrorResponse
 import { Observable, throwError } from 'rxjs';
 import {map, catchError} from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class ErrorInterceptor implements HttpInterceptor {
-	constructor(private router: Router) {}
+	constructor(private router: Router, private authService: AuthService) {}
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 		return next.handle(req).pipe(
 			map(response => {
@@ -28,6 +29,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 						case 401:
 								// handle error 401
 								this.router.navigate(['/login']);
+								this.authService.isLoggedIn = false;
 								break;
 						case 452:
 							// handle error 452

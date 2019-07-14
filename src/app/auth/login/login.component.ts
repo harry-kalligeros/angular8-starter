@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 	private _username: string;
 	password: string;
 
-	constructor(private authService: AuthService) {}
+	constructor(private authService: AuthService, private storageService: StorageService) {}
 
 	get username() {
 		return this._username;
@@ -35,7 +35,10 @@ export class LoginComponent implements OnInit {
 			password
 		};
 		this.authService.login(credentials)
-			.subscribe(jwt => console.log(jwt));
+			.subscribe(jwt => {
+				this.storageService.set('token', jwt);
+				this.authService.isLoggedIn = true;
+			});
 
 	}
 }
