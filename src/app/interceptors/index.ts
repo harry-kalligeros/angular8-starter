@@ -10,7 +10,7 @@ export const interceptorProviders = [
 	},
 	{
 		provide: HTTP_INTERCEPTORS,
-		useClass: ErrorInterceptor,
+		useClass: NoCacheInterceptor,
 		multi: true
 	}
 ];
