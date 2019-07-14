@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class EmployeesLayoutComponent implements OnInit {
 	employees$: Observable<Employee[]>;
 	employeeFilter: string;
+	employees: Employee[];
 
 	constructor(private employeeService: EmployeeService) {}
 

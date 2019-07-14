@@ -35,8 +35,9 @@ export class GraphsComponent implements OnInit, OnDestroy {
 	constructor(private graphsService: GraphsService) {}
 
 	ngOnInit() {
-		const subscription = this.graphsService.fetchStats().subscribe(stats => {
-			this.stats = this.graphsService.convertData(stats);
+		const subscription = this.graphsService.fetchStats()
+			.subscribe(stats => {
+				this.stats = this.graphsService.convertData(stats);
 		});
 		this.subs.add(subscription);
 	}

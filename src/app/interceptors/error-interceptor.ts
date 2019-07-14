@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpEvent, HttpHandler, HttpRequest, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import {map, catchError} from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class ErrorInterceptor implements HttpInterceptor {
+	constructor(private router: Router) {}
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 		return next.handle(req).pipe(
 			map(response => {
@@ -23,6 +25,10 @@ export class ErrorInterceptor implements HttpInterceptor {
 						case 400:
 							// handle error 400
 							break;
+						case 401:
+								// handle error 401
+								this.router.navigate(['/login']);
+								break;
 						case 452:
 							// handle error 452
 							break;

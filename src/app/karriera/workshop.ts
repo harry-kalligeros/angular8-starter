@@ -1,12 +1,17 @@
-import {environment} from '../../environments/environment';
+import { environment } from '../../environments/environment';
 
 class Attendee {
 	firstName: string;
 	lastName: string;
 }
 
-type Person = 'Male'|'Female';
+type Person = 'Male' | 'Female';
 
+/**
+ *  Makes a workshop class
+ *
+ * @class Workshop
+ */
 class Workshop {
 	students: Array<Attendee>;
 	// date: Date;
@@ -15,7 +20,7 @@ class Workshop {
 
 	constructor(public date: Date, ...premises: string[]) {
 		this.premises = premises;
-		environment.profileApiUrl
+		environment.profileApiUrl;
 	}
 
 	public watch(person: Person): void {
@@ -33,7 +38,6 @@ class Workshop {
 	}
 
 	private testx = (y: string) => this.premises[0] + y;
-
 }
 
 const workshop = new Workshop(new Date(), 'marousi', 'athens');
