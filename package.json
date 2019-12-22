@@ -1,5 +1,5 @@
 {
-  "name": "market-watcher",
+  "name": "angular8-starter",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,8 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test:watch": "jest --watch",
-	"backend": "node ./server/server.js",
-	"compodoc": "npx compodoc -p tsconfig.app.json"
+    "backend": "node ./server/server.js",
+    "compodoc": "npx compodoc -p tsconfig.app.json"
   },
   "private": true,
   "dependencies": {
@@ -34,7 +34,7 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.800.0",
+    "@angular-devkit/build-angular": "^0.803.21",
     "@angular/cli": "~8.0.2",
     "@angular/compiler-cli": "~8.0.0",
     "@angular/language-service": "~8.0.0",
@@ -44,8 +44,8 @@
     "@types/jest": "^24.0.15",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
-    "dyson": "^2.0.4",
-    "dyson-generators": "^0.2.0",
+    "dyson": "^3.0.1",
+    "dyson-generators": "^0.2.1",
     "faker": "^4.1.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
