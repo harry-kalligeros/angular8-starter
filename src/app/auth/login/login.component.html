@@ -1,0 +1,34 @@
+<h1>Market watcher</h1>
+<div class="card">
+	<form name="loginForm" #loginForm="ngForm">
+		<div class="card-body">
+			<div class="form-group d-flex">
+				<label for="inputUsername" class="col-form-label font-weight-bold  mr-3">Username</label>
+				<input
+					type="text"
+					class="form-control"
+					id="inputUsername"
+					name="username"
+					[(ngModel)]="username"
+					required
+				/>
+			</div>
+			<div class="form-group d-flex">
+				<label for="inputPassword" class="col-form-label font-weight-bold mr-3">Password</label>
+				<input
+					type="password"
+					class="form-control"
+					id="inputPassword"
+					name="password"
+					[(ngModel)]="password"
+					required
+				/>
+			</div>
+			<div class="text-center">
+				<button (click)="login()" class="btn btn-primary" [disabled]="loginForm.pristine || loginForm.invalid">
+					Login
+				</button>
+			</div>
+		</div>
+	</form>
+</div>

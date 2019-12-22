@@ -1,6 +1,7 @@
 :host {
 	background-color: #103c5a;
 	color: #f8f8f8;
+	display: block;
 }
 header {
 	display: flex;
@@ -12,4 +13,8 @@ header {
 		margin: 0;
 	}
 
+}
+
+li {
+	cursor: pointer;
 }

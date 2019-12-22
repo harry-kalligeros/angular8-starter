@@ -1,14 +1,16 @@
 {
-  "name": "market-watcher",
+  "name": "angular8-starter",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.js",
     "build": "ng build",
     "test": "jest",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "backend": "node ./server/server.js",
+    "compodoc": "npx compodoc -p tsconfig.app.json"
   },
   "private": true,
   "dependencies": {
@@ -22,30 +24,35 @@
     "@angular/router": "~8.0.0",
     "@briebug/jest-schematic": "^1.7.0",
     "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
+    "@swimlane/ngx-charts": "^12.0.1",
     "bootstrap-scss": "^4.3.1",
     "ngx-bootstrap": "^5.0.0",
     "roboto-fontface": "^0.10.0",
     "rxjs": "~6.4.0",
+    "subsink": "^1.0.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.800.0",
+    "@angular-devkit/build-angular": "^0.803.21",
     "@angular/cli": "~8.0.2",
     "@angular/compiler-cli": "~8.0.0",
     "@angular/language-service": "~8.0.0",
+    "@compodoc/compodoc": "^1.1.10",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/jest": "^24.0.15",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
-    "dyson": "^2.0.4",
+    "dyson": "^3.0.1",
+    "dyson-generators": "^0.2.1",
+    "faker": "^4.1.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "jest": "^24.8.0",
     "jest-preset-angular": "7.1.1",
     "protractor": "~5.4.0",
-    "ts-node": "~7.0.0",
+    "ts-node": "^7.0.1",
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
   }
